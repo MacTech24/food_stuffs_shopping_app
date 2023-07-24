@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "422092615696",
+    "project_id": "freshmarket-f3f9e",
+    "storage_bucket": "freshmarket-f3f9e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:422092615696:android:ad2a79286108aa9a9cda95",
+        "android_client_info": {
+          "package_name": "com.macsmith.freshmarket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "422092615696-th90hb9isqe0e43b9ncjo8up1ro60m2e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCD3NiCr1Ivu5VZcPqyoAdFUBILgHrbVlE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "422092615696-th90hb9isqe0e43b9ncjo8up1ro60m2e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

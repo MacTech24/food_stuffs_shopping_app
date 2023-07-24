@@ -18,7 +18,11 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () {
+    displaySplash();
+  }
+
+  displaySplash() {
+    Timer(Duration(seconds: 3), () async {
       final route = MaterialPageRoute(
         builder: (context) => LoginScreen(),
       );
@@ -40,7 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Center(
           child: Text(
             splashText,
-            style: style(white, 50, FontWeight.bold, 1.2),
+            style: style1(white, 50, FontWeight.bold, 1.2),
             textAlign: TextAlign.center,
           ),
         ),

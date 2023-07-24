@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_signin_button/button_list.dart';
-import 'package:flutter_signin_button/button_view.dart';
+//import 'package:google_sign_in/google_sign_in.dart';
 import 'package:food_stuff_app/src/constants/images.dart';
 import 'package:food_stuff_app/src/constants/string_text.dart';
 import 'package:provider/provider.dart';
 
 import '../../constants/colors.dart';
 import '../../controller/form_provider.dart';
+import '../main/main_screen.dart';
+import '../signup/signup_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -34,15 +35,39 @@ class LoginScreen extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Text(
-                      loginTitle,
-                      style: loginStyle(black, 25, FontWeight.normal, 0),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: InkWell(
+                        onTap: () {
+                          final route = MaterialPageRoute(
+                            builder: (context) => SignupScreen(),
+                          );
+                          Navigator.push(context, route);
+                        },
+                        child: Column(
+                          children: [
+                            Text(
+                              signupTitle,
+                              style:
+                                  loginStyle(darkGreen, 22, FontWeight.bold, 0),
+                            ),
+                            Container(
+                              height: 3,
+                              width: 100,
+                              color: darkGreen,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
                     ),
                     Text(
                       appName,
                       style: appStyle(white, 45, FontWeight.bold, 0),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Consumer<FormProvider>(
@@ -72,6 +97,7 @@ class LoginScreen extends StatelessWidget {
                                         border: InputBorder.none,
                                         hintText: "Email",
                                       ),
+                                      keyboardType: TextInputType.emailAddress,
                                     ),
                                   ),
                                   Container(
@@ -94,11 +120,11 @@ class LoginScreen extends StatelessWidget {
                               ref.emailErrorText,
                               style: TextStyle(color: ref.emailErrorColor),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Container(
-                              padding: EdgeInsets.symmetric(
+                              padding: const EdgeInsets.symmetric(
                                 horizontal: 10,
                               ),
                               decoration: BoxDecoration(
@@ -112,13 +138,13 @@ class LoginScreen extends StatelessWidget {
                                   Expanded(
                                     child: TextFormField(
                                       obscureText: ref.isPasswordVisible,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 18,
                                       ),
                                       onChanged: (value) {
                                         ref.validatePassword(value);
                                       },
-                                      decoration: InputDecoration(
+                                      decoration: const InputDecoration(
                                         border: InputBorder.none,
                                         hintText: "Password",
                                       ),
@@ -141,47 +167,63 @@ class LoginScreen extends StatelessWidget {
                             ),
                             Align(
                               alignment: Alignment.centerRight,
-                              child: Text.rich(
-                                TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: newUser,
-                                      style: loginStyle(
-                                        Colors.blue,
-                                        15,
-                                        FontWeight.normal,
-                                        0,
+                              child: InkWell(
+                                onTap: () {
+                                  final route = MaterialPageRoute(
+                                    builder: (context) => SignupScreen(),
+                                  );
+                                  Navigator.push(context, route);
+                                },
+                                child: Text.rich(
+                                  TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: newUser,
+                                        style: loginStyle(
+                                          black,
+                                          14,
+                                          FontWeight.w400,
+                                          0,
+                                        ),
                                       ),
-                                    ),
-                                    TextSpan(
-                                      text: signUp,
-                                      style: loginStyle(
-                                          Colors.blue, 14, FontWeight.bold, 0),
-                                    )
-                                  ],
+                                      TextSpan(
+                                        text: signUp,
+                                        style: loginStyle(Colors.blue, 14,
+                                            FontWeight.bold, 0),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                             ),
                             ClipRRect(
                               borderRadius: BorderRadius.circular(10),
-                              child: Container(
-                                  color: ref.isValid
-                                      ? darkGreen
-                                      : darkGreen.withOpacity(0.5),
-                                  child: Center(
-                                    child: TextButton(
-                                        onPressed: () {},
-                                        child: const Text(
-                                          "Sign In",
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.white,
-                                          ),
-                                        )),
-                                  )),
+                              child: InkWell(
+                                onTap: () {
+                                  final route = MaterialPageRoute(
+                                    builder: (context) => MainScreen(),
+                                  );
+                                  Navigator.push(context, route);
+                                },
+                                child: Container(
+                                    color: ref.isValid
+                                        ? darkGreen
+                                        : darkGreen.withOpacity(0.5),
+                                    child: Center(
+                                      child: TextButton(
+                                          onPressed: () {},
+                                          child: const Text(
+                                            "Sign In",
+                                            style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.white,
+                                            ),
+                                          )),
+                                    )),
+                              ),
                             ),
                             const SizedBox(
                               height: 20,
@@ -215,13 +257,13 @@ class LoginScreen extends StatelessWidget {
                                     ),
                                   )),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                             ),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Align(
+                                const Align(
                                   alignment: Alignment.topCenter,
                                 ),
                                 Text(

@@ -8,6 +8,8 @@ class FormProvider with ChangeNotifier {
   String _passwordErrorText = "";
   Color _passwordErrorColor = Colors.red;
   bool _isPasswordVisible = true;
+  String _nameErrorText = "";
+  Color _nameErrorColor = Colors.red;
 
   Color get suffixIconColor => _suffixIconColor;
   IconData get suffixIcon => _suffixIcon;
@@ -16,9 +18,21 @@ class FormProvider with ChangeNotifier {
   String get passwordErrorText => _passwordErrorText;
   Color get passwordErrorColor => _passwordErrorColor;
   bool get isPasswordVisible => _isPasswordVisible;
+  String get nameErrorText => _nameErrorText;
+  Color get nameErrorColor => _nameErrorColor;
 
   void toggleVisibility() {
     _isPasswordVisible = !_isPasswordVisible;
+    notifyListeners();
+  }
+
+  void validateName(String value) {
+    if (value.isEmpty) {
+      _nameErrorText = "  Field cannot be empty";
+    } else {
+      _nameErrorText = "";
+    }
+
     notifyListeners();
   }
 

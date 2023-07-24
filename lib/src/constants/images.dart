@@ -1,4 +1,9 @@
-import 'package:flutter/material.dart';
-
+const String dropDownIcon = "assets/icons/down-arrow.png";
 const String loginBg = "assets/images/tomato.png";
 const String googleIcon = "assets/images/google.png";
+const String tomatoImage = "assets/images/tomatoes.jfif";
+const String yam = "assets/images/yam.jfif";
+const String beans = "assets/images/beans.jpg";
+const String rice = "assets/images/rice.jpg";
+const String onions = "assets/images/onions.jfif";
+const String okra = "assets/fruitsAndVegetables/okra.jfif";
